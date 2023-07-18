@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Multiple {% endblock title %}
+
+{% block body %}
+<div class="container">
+  <form class="form-container" action="/multipleimage/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+          <strong>{{message.tags}}!</strong> {{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="form-inner">
+      <h3>Compress Multiple Images</h3>
+    </div>
+    <div class="form-inner">
+      <label for="singleimg">Image:</label><span> Select a folder containing images</span><br>
+      <input class="form-control" type="file" name="singleimg" id="singleimg" webkitdirectory directory Multiple required><br>
+      <label for="reso">Resolution:</label>
+      <select name="reso" class="form-control" id="reso" required>
+        <option value="">Select</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select><br>
+      <label for="format">Format:</label>
+      <select name="format" class="form-control" id="format" required>
+        <option value="">Select</option>
+        <option value="pdf">PDF</option>
+        <option value="jpeg">JPEG</option>
+        <option value="gif">GIF</option>
+      </select><br>
+    </div><br>
+    <div class="container">
+      <a href="/"><button type="button" class="btn btn-primary" style="float: left;">Back</button></a>
+      <button class="btn btn-primary" type="submit" style="float: right;">Compress</button><br><br>
+    </div>
+  </form>
+</div>
+{% endblock body %}

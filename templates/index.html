@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+<div class="container">
+  <form action="" class="form-container">
+    <div class="text-center mb-3">
+      <h1>Image Size Resizer</h1>
+    </div>
+    <div class="form-inner">
+      <h3>Compress Single Image</h3>
+      <p><a href="/singleimage">Click here to compress a single image</a></p>
+    </div>
+    <div class="form-inner">
+      <h3>Compress Multiple Images</h3>
+      <p><a href="/multipleimage">Click here to compress multiple images</a></p>
+      <p>Select the folder and get the compressed versions of the images in zip folder</p>
+    </div>
+  </form>
+</div>
+{% endblock body %}
